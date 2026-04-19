@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Subhrojyoti Dey, Engineering-Rooted Product Leader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:  #0B1927;
+      --navy2: #11243A;
+      --navy3: #18304D;
+      --gold:  #C8973A;
+      --gold2: #E8B45A;
+      --white: #F2EFE9;
+      --gray:  #7A8FA8;
+      --line:  rgba(200,151,58,0.15);
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'DM Sans', sans-serif;
+      --mono:  'DM Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--navy); color: var(--white); font-family: var(--sans); overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 4rem;
+      background: rgba(11,25,39,0.92); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-logo { font-family: var(--serif); font-size: 1.05rem; font-weight: 300; letter-spacing: 0.14em; color: var(--gold); text-decoration: none; }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a { font-size: 0.73rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold2); }
+
+    /* HERO */
+    #hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
+    .hero-left {
+      background: var(--navy2); display: flex; flex-direction: column;
+      justify-content: center; padding: 9rem 4rem 5rem; position: relative; z-index: 1;
+    }
+    .hero-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .eyebrow {
+      font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1.6rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .eyebrow::before { content: ''; width: 2.5rem; height: 1px; background: var(--gold); }
+    h1 { font-family: var(--serif); font-size: clamp(3.2rem, 5vw, 5.8rem); font-weight: 300; line-height: 1.0; color: var(--white); }
+    h1 em { font-style: italic; color: var(--gold); }
+    .hero-sub { font-family: var(--serif); font-size: 1.15rem; font-weight: 300; font-style: italic; color: var(--gray); margin: 1.4rem 0 2.4rem; line-height: 1.6; max-width: 440px; }
+    .ctas { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.8rem 1.8rem; font-size: 0.74rem; letter-spacing: 0.13em; text-transform: uppercase; text-decoration: none; font-family: var(--sans); transition: all 0.22s; }
+    .btn-gold { background: var(--gold); color: var(--navy); font-weight: 500; }
+    .btn-gold:hover { background: var(--gold2); transform: translateY(-2px); }
+    .btn-ghost { border: 1px solid var(--line); color: var(--gray); }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold2); }
+
+    .hero-right { position: relative; overflow: hidden; background: var(--navy3); }
+    .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; opacity: 0.8; transition: opacity 0.4s; }
+    .hero-right:hover .hero-img { opacity: 0.92; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(11,25,39,0.5) 0%, transparent 55%); }
+    .hero-badge {
+      position: absolute; bottom: 2.5rem; left: 2rem; right: 2rem;
+      border: 1px solid rgba(200,151,58,0.3); background: rgba(11,25,39,0.85);
+      backdrop-filter: blur(12px); padding: 1.25rem 1.5rem;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      animation: fadeUp 0.7s ease 0.6s both;
+    }
+    .bs { text-align: center; padding: 0 0.5rem; border-right: 1px solid var(--line); }
+    .bs:last-child { border-right: none; }
+    .bn { font-family: var(--serif); font-size: 2.2rem; font-weight: 300; color: var(--gold); line-height: 1; }
+    .bl { font-size: 0.65rem; color: var(--gray); margin-top: 0.25rem; letter-spacing: 0.06em; line-height: 1.3; }
+
+    /* SECTION */
+    .sw { padding: 7rem 4rem; }
+    .sw.alt { background: var(--navy2); }
+    .ey { font-family: var(--mono); font-size: 0.67rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; display: flex; align-items: center; gap: 0.75rem; }
+    .ey::before { content: ''; width: 2rem; height: 1px; background: var(--gold); }
+    h2 { font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3.8rem); font-weight: 300; line-height: 1.1; }
+    h2 em { font-style: italic; color: var(--gold); }
+    hr.rule { border: none; border-top: 1px solid var(--line); }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 5rem; align-items: start; margin-top: 4rem; }
+    .photo-wrap { position: relative; }
+    .photo-main { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center; }
+    .photo-badge {
+      position: absolute; top: 1.5rem; left: 1.5rem;
+      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em;
+      color: var(--gold); background: rgba(11,25,39,0.85); padding: 0.35rem 0.65rem;
+      text-transform: uppercase;
+    }
+    .about-text p { color: var(--gray); line-height: 1.78; margin-bottom: 1.15rem; font-size: 1rem; }
+    .about-text p strong { color: var(--white); font-weight: 400; }
+    .facts { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.7rem; }
+    .fact { display: flex; gap: 1rem; padding: 0.9rem 1.1rem; border-left: 2px solid var(--gold); background: rgba(200,151,58,0.04); }
+    .fact-body { font-size: 0.85rem; color: var(--gray); line-height: 1.5; }
+    .fact-body strong { color: var(--white); display: block; font-weight: 400; margin-bottom: 0.1rem; }
+
+    /* WORK */
+    .work-lead { max-width: 520px; margin-bottom: 3.5rem; }
+    .work-lead p { color: var(--gray); margin-top: 0.9rem; line-height: 1.7; }
+    .proj-cat { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; }
+
+    /* Featured project */
+    .proj-featured { display: grid; grid-template-columns: 1.1fr 1fr; border: 1px solid var(--line); overflow: hidden; margin-bottom: 1.5px; }
+    .pf-img { position: relative; min-height: 480px; overflow: hidden; background: var(--navy3); }
+    .pf-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.6s; }
+    .proj-featured:hover .pf-img img { transform: scale(1.04); }
+    .pf-img-ov { position: absolute; inset: 0; background: linear-gradient(to right, transparent 50%, var(--navy2)); }
+    .pf-content { background: var(--navy2); padding: 3.5rem 3rem; display: flex; flex-direction: column; justify-content: center; }
+    .pf-content h3 { font-family: var(--serif); font-size: 2.2rem; font-weight: 300; line-height: 1.15; margin-bottom: 1rem; }
+    .pf-content p { font-size: 0.9rem; color: var(--gray); line-height: 1.72; margin-bottom: 1.5rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tag { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.22rem 0.55rem; border: 1px solid var(--line); color: var(--gray); }
+
+    /* Grid 3 */
+    .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--line); }
+    .pc { background: var(--navy); overflow: hidden; position: relative; transition: background 0.2s; }
+    .pc:hover { background: var(--navy2); }
+    .pc::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+    .pc:hover::before { transform: scaleX(1); }
+    .pc-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; opacity: 0.65; transition: opacity 0.3s, transform 0.5s; }
+    .pc:hover .pc-img { opacity: 0.85; transform: scale(1.04); }
+    .pc-body { padding: 1.75rem; }
+    .pc-body h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 300; margin-bottom: 0.6rem; line-height: 1.2; }
+    .pc-body p { font-size: 0.82rem; color: var(--gray); line-height: 1.6; margin-bottom: 1rem; }
+
+    /* RECOGNITION */
+    .rec-hero { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); overflow: hidden; margin-top: 3.5rem; }
+    .rh-img { position: relative; min-height: 400px; overflow: hidden; background: var(--navy3); }
+    .rh-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; opacity: 0.82; transition: opacity 0.4s; }
+    .rec-hero:hover .rh-img img { opacity: 0.95; }
+    .rh-img-ov { position: absolute; inset: 0; background: linear-gradient(to right, transparent, var(--navy2) 88%); }
+    .rh-content { background: var(--navy2); padding: 3.5rem 3rem; display: flex; flex-direction: column; justify-content: center; }
+    .rh-content h3 { font-family: var(--serif); font-size: 2rem; font-weight: 300; line-height: 1.2; margin-bottom: 1rem; }
+    .rh-content p { color: var(--gray); font-size: 0.9rem; line-height: 1.72; margin-bottom: 1.5rem; }
+    .rh-link { font-family: var(--mono); font-size: 0.7rem; color: var(--gold); text-decoration: none; letter-spacing: 0.1em; transition: color 0.2s; }
+    .rh-link:hover { color: var(--gold2); }
+
+    .rec-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5px; background: var(--line); margin-top: 1.5px; }
+    .rm { background: var(--navy2); padding: 1.75rem 1.5rem; transition: background 0.2s; }
+    .rm:hover { background: var(--navy3); }
+    .rm-yr { font-family: var(--mono); font-size: 0.62rem; color: var(--gold); letter-spacing: 0.18em; margin-bottom: 0.65rem; }
+    .rm h4 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; margin-bottom: 0.4rem; line-height: 1.3; }
+    .rm p { font-size: 0.8rem; color: var(--gray); line-height: 1.5; }
+
+    /* PATENTS */
+    .pat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3.5rem; align-items: start; }
+    .pat-items { margin-top: 0.5rem; }
+    .pat-row { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; padding: 1.15rem 0; border-bottom: 1px solid var(--line); }
+    .pn { font-family: var(--mono); font-size: 0.63rem; color: var(--gold); letter-spacing: 0.07em; white-space: nowrap; }
+    .pt { font-size: 0.92rem; color: var(--white); font-weight: 300; }
+    .pl { font-family: var(--mono); font-size: 0.63rem; color: var(--gray); text-decoration: none; white-space: nowrap; transition: color 0.2s; }
+    .pl:hover { color: var(--gold2); }
+    .pat-img-wrap { position: relative; }
+    .pat-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; opacity: 0.82; }
+    .pat-cap { position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem; background: rgba(11,25,39,0.88); backdrop-filter: blur(8px); padding: 1rem 1.25rem; border-left: 2px solid var(--gold); font-size: 0.82rem; color: var(--gray); }
+    .pat-cap strong { color: var(--white); display: block; margin-bottom: 0.2rem; font-weight: 400; }
+
+    /* CONTACT */
+    #contact { position: relative; overflow: hidden; text-align: center; }
+    .ct-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&q=50') center/cover; opacity: 0.06; }
+    .ct-inner { position: relative; z-index: 1; padding: 8rem 4rem; }
+    .ct-inner h2 { margin-bottom: 0.75rem; }
+    .ct-inner > p { color: var(--gray); max-width: 460px; margin: 0 auto 2.5rem; line-height: 1.72; }
+    .ct-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 2.5rem; }
+    .cl { display: flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.74rem; color: var(--gray); text-decoration: none; letter-spacing: 0.08em; transition: color 0.2s; }
+    .cl:hover { color: var(--gold2); }
+
+    footer { text-align: center; padding: 2rem; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 0.64rem; color: var(--gray); letter-spacing: 0.1em; }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-left .eyebrow { animation: fadeUp 0.6s ease 0.15s both; }
+    .hero-left h1      { animation: fadeUp 0.6s ease 0.28s both; }
+    .hero-left .hero-sub { animation: fadeUp 0.6s ease 0.42s both; }
+    .hero-left .ctas   { animation: fadeUp 0.6s ease 0.56s both; }
+
+
+    /* PATENT CARDS */
+    .pat-cards { display: flex; flex-direction: column; gap: 0; margin-top: 3rem; }
+    .pat-card {
+      display: grid; grid-template-columns: 160px 1fr;
+      gap: 0; border: 1px solid var(--line); margin-bottom: -1px;
+      transition: background 0.2s;
+    }
+    .pat-card:hover { background: var(--navy2); }
+    .pat-card:hover .pat-card-left { background: var(--navy3); }
+    .pat-card-left {
+      background: var(--navy2); display: flex; align-items: center;
+      justify-content: center; padding: 1.25rem; border-right: 1px solid var(--line);
+    }
+    .pat-card-img { width: 100%; max-height: 120px; object-fit: contain; filter: invert(1) opacity(0.55); }
+    .pat-no-img { width: 100%; height: 100px; background: var(--navy3); }
+    .pat-card-right { padding: 1.5rem 1.75rem; display: flex; flex-direction: column; gap: 0.4rem; }
+    .pat-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; color: var(--white); }
+    .pat-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.65; margin: 0.3rem 0 0.6rem; }
+    @media (max-width: 640px) {
+      .pat-card { grid-template-columns: 1fr; }
+      .pat-card-left { border-right: none; border-bottom: 1px solid var(--line); }
+    }
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      nav { padding: 1.1rem 2rem; }
+      #hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 8rem 2rem 3rem; }
+      .hero-right { min-height: 55vw; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .proj-featured { grid-template-columns: 1fr; }
+      .pf-img { min-height: 300px; }
+      .proj-grid { grid-template-columns: 1fr; }
+      .rec-hero { grid-template-columns: 1fr; }
+      .rh-img { min-height: 280px; }
+      .rec-grid { grid-template-columns: repeat(2, 1fr); }
+      .pat-grid { grid-template-columns: 1fr; }
+      .sw { padding: 5rem 2rem; }
+      .hero-badge { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .rec-grid { grid-template-columns: 1fr; }
+      .pat-row { grid-template-columns: 1fr; gap: 0.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">S · DEY</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#recognition">Recognition</a></li>
+    <li><a href="#patents">Patents</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-grid"></div>
+    <div class="eyebrow">Product Leader · Engineer · Entrepreneur</div>
+    <h1>Subhrojyoti<br><em>Dey</em></h1>
+    <p class="hero-sub">Engineering-rooted product manager with 9+ years building FDA-regulated medical devices, global consumer electronics, and AI-powered platforms from concept through commercialization.</p>
+    <div class="ctas">
+      <a href="#work" class="btn btn-gold">View Work ↓</a>
+      <a href="https://www.linkedin.com/in/deysubhro/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+      <a href="#contact" class="btn btn-ghost">Contact</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-img"
+      src="img_01.jpg"
+      alt="OralVac, FDA-regulated oral care medical device by Toothsure"
+      onerror="this.src='https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=900&q=80'"/>
+    <div class="hero-overlay"></div>
+    <div class="hero-badge">
+      <div class="bs"><div class="bn">9+</div><div class="bl">Years Experience</div></div>
+      <div class="bs"><div class="bn">5</div><div class="bl">USPTO Patents</div></div>
+      <div class="bs"><div class="bn">$1M</div><div class="bl">Capital Raised</div></div>
+      <div class="bs"><div class="bn">40%</div><div class="bl">Cost Reductions</div></div>
+    </div>
+  </div>
+</section>
+<hr class="rule"/>
+
+<!-- ABOUT -->
+<section id="about" class="sw alt">
+  <div class="ey">About</div>
+  <h2>Engineer first.<br><em>Builder always.</em></h2>
+  <div class="about-grid">
+    <div class="photo-wrap">
+      <img class="photo-main"
+        src="img_02.jpg"
+        alt="Subhrojyoti (Rico) Dey, Co-Founder & COO, Toothsure"
+        onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&q=80'"/>
+      <div class="photo-badge">Co-Founder & COO · Toothsure®</div>
+    </div>
+    <div class="about-text" style="padding-top:0.5rem;">
+      <p>I am a product manager and entrepreneur who spent five years inside <strong>Hasbro's global product operations</strong>, delivering NERF, Fortnite, and pre-school lines across North America, Europe, and Asia, before co-founding a regulated medical device company, navigating the FDA, and building two supply chains simultaneously on two continents.</p>
+      <p>My engineering foundation spans <strong>embedded systems firmware, PCB design, electromechanical product development, VR simulation architecture, and production AI/LLM deployment</strong>. I have taken products from whiteboard through FDA clearance, from concept through global manufacturing scale-up.</p>
+      <p>I hold an <strong>MS in Computer Engineering from the University of Michigan-Dearborn</strong> (GPA 3.64) and a BS in Electrical Engineering from KIIT University. Based in Dearborn, Michigan.</p>
+      <div class="facts">
+        <div class="fact"><div style="color:var(--gold);font-size:0.9rem;flex-shrink:0;margin-top:0.1rem;">◈</div><div class="fact-body"><strong>Co-Founder & COO, Toothsure®, Inc. (2024–Present)</strong>FDA Class I & II devices · ISO 13485 QMS · Dual USA–China supply chain · $1M raised</div></div>
+        <div class="fact"><div style="color:var(--gold);font-size:0.9rem;flex-shrink:0;margin-top:0.1rem;">◈</div><div class="fact-body"><strong>Engineering Manager, Brainchild Engineering (2023–2024)</strong>Multi-client NPI consulting across medical, automotive, and consumer industries</div></div>
+        <div class="fact"><div style="color:var(--gold);font-size:0.9rem;flex-shrink:0;margin-top:0.1rem;">◈</div><div class="fact-body"><strong>Project Engineer, Hasbro India (2017–2022)</strong>NERF Fortnite · NERF Rivals · Mr. & Mrs. Potato Head · Pre-school action lines</div></div>
+        <div class="fact"><div style="color:var(--gold);font-size:0.9rem;flex-shrink:0;margin-top:0.1rem;">◈</div><div class="fact-body"><strong>MS Computer Engineering, U of M-Dearborn · GPA 3.64</strong>Embedded Systems · Cloud Computing · Supply Chain Management (A) · Engineering Management (A+)</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<hr class="rule"/>
+
+<!-- WORK -->
+<section id="work" class="sw">
+  <div class="work-lead">
+    <div class="ey">Featured Work</div>
+    <h2>Products built.<br><em>Problems solved.</em></h2>
+    <p>A curated selection of products and platforms developed across medical devices, consumer electronics, VR simulation, and AI deployment.</p>
+  </div>
+
+  <!-- FEATURED CARD, Toothsure with real hospital image -->
+  <div class="proj-featured">
+    <div class="pf-img">
+      <img
+        src="img_03.jpg"
+        alt="Dentsim, AI-powered VR dental surgical simulation platform"
+        onerror="this.src='https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=900&q=80'"/>
+      <div class="pf-img-ov"></div>
+    </div>
+    <div class="pf-content">
+      <div class="proj-cat">Medical Device · AI · VR Simulation</div>
+      <h3>Toothsure® OralVac &amp; Dentsim™</h3>
+      <p>Co-founded and led full product lifecycle for OralVac®, oral care kits for ICU, surgical, and long-term care, through FDA Class I & II approval, ISO 13485 QMS, and dual USA–China supply chain build within 12 months. Simultaneously directed Dentsim™, an AI-powered VR dental surgical simulation platform targeting Metaverse deployment.</p>
+      <div class="tags">
+        <span class="tag">FDA 21 CFR 820</span>
+        <span class="tag">ISO 13485</span>
+        <span class="tag">VR/XR Platform</span>
+        <span class="tag">LLM Deployment</span>
+        <span class="tag">Dual Supply Chain</span>
+        <span class="tag">$1M Raised</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-grid">
+    <div class="pc">
+      <img class="pc-img"
+        src="img_04.jpg"
+        alt="Hasbro NERF and entertainment product portfolio, global NPI programs"/>
+      <div class="pc-body">
+        <div class="proj-cat">Consumer Electronics · Global NPI</div>
+        <h3>Hasbro, NERF &amp; Entertainment Lines</h3>
+        <p>Led electromechanical NPI programs for NERF Fortnite, Rivals, Elite Stryke, Mega Stryke, Mr. & Mrs. Potato Head, and pre-school lines, concept through global retail launch across NA, Europe, and Asia in 30-week cycles. Managed $5M to $25M sourcing scale-up over three years.</p>
+        <div class="tags"><span class="tag">Embedded Systems</span><span class="tag">PCB Design</span><span class="tag">FCC · CE</span><span class="tag">Injection Molding</span></div>
+      </div>
+    </div>
+    <div class="pc">
+      <img class="pc-img"
+        src="img_05.jpg"
+        alt="AI and LLM platforms, OpenAI, Anthropic, Gemini, Copilot, Llama, Mistral"/>
+      <div class="pc-body">
+        <div class="proj-cat">AI · Operations Automation</div>
+        <h3>Production LLM Deployment</h3>
+        <p>Built and deployed production AI-powered customer support and document control systems using LLM-based automation at a regulated medical device company, reducing operational overhead and enabling a continuous post-launch product feedback loop.</p>
+        <div class="tags"><span class="tag">ChatGPT</span><span class="tag">Claude</span><span class="tag">Prompt Engineering</span><span class="tag">Production Deployment</span></div>
+      </div>
+    </div>
+    <div class="pc">
+      <img class="pc-img"
+        src="img_06.jpg"
+        alt="Electric Vehicle PHOENIX, KIIT e-BAJA Team, Baja SAE competition"/>
+      <div class="pc-body">
+        <div class="proj-cat">Capstone · Baja SAE Competition</div>
+        <h3>Electric Vehicle "PHOENIX"</h3>
+        <p>Designed and built a competition electric vehicle for a Baja SAE-format event, integrating drivetrain systems, motor control, power electronics, and structural engineering from concept through competition deployment.</p>
+        <div class="tags"><span class="tag">Power Electronics</span><span class="tag">Motor Control</span><span class="tag">Systems Integration</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<hr class="rule"/>
+
+<!-- RECOGNITION -->
+<section id="recognition" class="sw alt">
+  <div class="ey">Recognition</div>
+  <h2>Recognized for<br><em>building what matters.</em></h2>
+
+  <div class="rec-hero">
+    <div class="rh-img">
+      <img
+        src="img_07.jpg"
+        alt="Subhrojyoti Dey presenting OralVac+ at 5 Across Startup Showcase, Lexington KY"
+        onerror="this.src='https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=900&q=80'"/>
+      <div class="rh-img-ov"></div>
+    </div>
+    <div class="rh-content">
+      <div class="proj-cat">2026 · KY Inno / Louisville Business First</div>
+      <h3>"Startup to Watch", Kentucky 2026</h3>
+      <p>Toothsure® named a 2026 Startup to Watch by KY Inno and Louisville Business First, recognizing innovation in bedside oral care systems and the company's potential to transform clinical oral hygiene protocols in hospital and long-term care environments.</p>
+      <a class="rh-link" href="https://www.toothsure.com/post/celebrating-innovation-toothsure-named-one-of-ky-inno-s-2026-startups-to-watch" target="_blank">Read the Full Feature ↗</a>
+    </div>
+  </div>
+
+  <div class="rec-grid">
+    <div class="rm"><div class="rm-yr">2025</div><h4>Market Disruptor</h4><p>Placed at 5 Across Startup Showcase, Lexington, KY, recognized for disrupting the clinical oral care market.</p></div>
+    <div class="rm"><div class="rm-yr">2024</div><h4>Published Author</h4><p>Systems-innovation article on bedside oral care featured by TestlabsUK, selected for publication on Outlook. <a href="https://testlabsuk.com/blog/fixing-bedside-oral-care-a-systems-approach-for-hospitals-and-long-term-care/" target="_blank" style="color:var(--gold);font-family:var(--mono);font-size:0.72rem;text-decoration:none;letter-spacing:0.08em;">Read Article ↗</a></p></div>
+    <div class="rm"><div class="rm-yr">Hasbro</div><h4>Above &amp; Beyond Award</h4><p>Received for extraordinary leadership in Project Engineering at Hasbro, Inc. across global NPI programs.</p></div>
+    <div class="rm"><div class="rm-yr">2024</div><h4>Alpha Kappa Psi</h4><p>Member, AKPsi Eta Nu Chapter, University of Michigan-Dearborn professional business fraternity.</p></div>
+  </div>
+</section>
+<hr class="rule"/>
+
+<!-- PATENTS -->
+<section id="patents" class="sw">
+  <div class="ey">Intellectual Property</div>
+  <h2>5 USPTO Patents<br><em style="font-style:italic;color:var(--gold)">Co-Authored.</em></h2>
+  <p style="color:var(--gray);margin-top:1rem;max-width:560px;line-height:1.7;">Published utility patents spanning dental technology, oral care devices, and mechanical innovation, co-authored across Toothsure and client engineering programs.</p>
+  <div class="pat-cards">
+    <div class="pat-card">
+      <div class="pat-card-left">
+        <img class="pat-card-img" src="img_08.svg" alt="Patent illustration"/>
+      </div>
+      <div class="pat-card-right">
+        <div class="pn">US20240090656A1</div>
+        <div class="pat-title">Syringe Toothbrush</div>
+        <div class="pat-desc">A novel oral care device integrating syringe-based fluid delivery with brushing mechanics, enabling waterless oral hygiene in clinical and bedside environments for patients who cannot access traditional brushing.</div>
+        <a class="pl" href="https://patents.google.com/patent/US20240090656A1" target="_blank">View Patent ↗</a>
+      </div>
+    </div>
+    <div class="pat-card">
+      <div class="pat-card-left">
+        <img class="pat-card-img" src="img_09.svg" alt="Patent illustration"/>
+      </div>
+      <div class="pat-card-right">
+        <div class="pn">US20240090657A1</div>
+        <div class="pat-title">Electric Toothbrush</div>
+        <div class="pat-desc">An electrically-actuated toothbrush system designed for assisted oral care in hospital and long-term care settings, optimizing cleaning efficiency while minimizing caregiver effort and procedure time.</div>
+        <a class="pl" href="https://patents.google.com/patent/US20240090657A1" target="_blank">View Patent ↗</a>
+      </div>
+    </div>
+    <div class="pat-card">
+      <div class="pat-card-left">
+        <img class="pat-card-img" src="img_10.svg" alt="Patent illustration"/>
+      </div>
+      <div class="pat-card-right">
+        <div class="pn">US20240245497A1</div>
+        <div class="pat-title">Sedation Toothbrush</div>
+        <div class="pat-desc">A specialized oral care instrument engineered for use on sedated or unconscious patients in ICU and surgical environments, addressing the unique access and compliance challenges of critical care oral hygiene.</div>
+        <a class="pl" href="https://patents.google.com/patent/US20240245497A1" target="_blank">View Patent ↗</a>
+      </div>
+    </div>
+    <div class="pat-card">
+      <div class="pat-card-left">
+        <img class="pat-card-img" src="img_11.svg" alt="Patent illustration"/>
+      </div>
+      <div class="pat-card-right">
+        <div class="pn">US20240166003A1</div>
+        <div class="pat-title">Automatic Trailer Hitch</div>
+        <div class="pat-desc">An automated trailer hitch coupling mechanism that eliminates the need for manual alignment during hitching, improving safety and usability for drivers operating solo without a spotter.</div>
+        <a class="pl" href="https://patents.google.com/patent/US20240166003A1" target="_blank">View Patent ↗</a>
+      </div>
+    </div>
+    <div class="pat-card">
+      <div class="pat-card-left">
+        <img class="pat-card-img" src="img_12.svg" alt="Patent illustration"/>
+      </div>
+      <div class="pat-card-right">
+        <div class="pn">US20250275834A1</div>
+        <div class="pat-title">Artificial Palatal Expansion Kit</div>
+        <div class="pat-desc">A next-generation rapid palatal expansion device incorporating embedded electronics for programmable force delivery and treatment monitoring, enabling more precise and patient-friendly orthodontic expansion therapy.</div>
+        <a class="pl" href="https://patents.google.com/patent/US20250275834A1" target="_blank">View Patent ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+<hr class="rule"/>
+
+<!-- CONTACT -->
+<section id="contact" class="sw alt">
+  <div class="ct-bg"></div>
+  <div class="ct-inner">
+    <div class="ey" style="justify-content:center;">Contact</div>
+    <h2>Let's build<br><em>something great.</em></h2>
+    <p>Open to product management, engineering leadership, and entrepreneurial opportunities in the United States and Canada.</p>
+    <div class="ctas" style="justify-content:center;">
+      <a href="mailto:dey.subhrojyoti@gmail.com" class="btn btn-gold">Send an Email</a>
+      <a href="https://www.linkedin.com/in/deysubhro/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+    </div>
+    <div class="ct-links">
+      <a class="cl" href="mailto:dey.subhrojyoti@gmail.com">✉ dey.subhrojyoti@gmail.com</a>
+      <span class="cl" style="color:var(--line);">·</span>
+      <a class="cl" href="tel:+13133774171">✆ +1 313-377-4171</a>
+      <span class="cl" style="color:var(--line);">·</span>
+      <span class="cl">◎ Dearborn, Michigan</span>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Subhrojyoti Dey · Dearborn, Michigan · Built with intention</footer>
+
+</body>
+</html>
