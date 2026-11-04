@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 330">
+<defs>
+<filter id="w" x="-15%" y="-25%" width="130%" height="150%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.011 0.0045" numOctaves="2" seed="11" result="n"/>
+  <feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G"/>
+</filter>
+<linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0.18">
+  <stop offset="0"    stop-color="#ffffff" stop-opacity="0"/>
+  <stop offset="0.10" stop-color="#ffffff" stop-opacity="0.38"/>
+  <stop offset="0.22" stop-color="#000000" stop-opacity="0.30"/>
+  <stop offset="0.36" stop-color="#ffffff" stop-opacity="0.30"/>
+  <stop offset="0.52" stop-color="#000000" stop-opacity="0.26"/>
+  <stop offset="0.66" stop-color="#ffffff" stop-opacity="0.34"/>
+  <stop offset="0.82" stop-color="#000000" stop-opacity="0.28"/>
+  <stop offset="1"    stop-color="#ffffff" stop-opacity="0.22"/>
+</linearGradient>
+</defs>
+<g filter="url(#w)">
+<rect x="20" y="25" width="480" height="93.4" fill="#ff9933"/><rect x="20" y="118.4" width="480" height="93.3" fill="#ffffff"/><rect x="20" y="211.7" width="480" height="93.3" fill="#138808"/><circle cx="260" cy="165" r="40" fill="none" stroke="#000080" stroke-width="5"/><circle cx="260" cy="165" r="7" fill="#000080"/><line x1="260.0" y1="165.0" x2="296.8" y2="165.0" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="295.5" y2="174.5" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="291.9" y2="183.4" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="286.0" y2="191.0" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="278.4" y2="196.9" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="269.5" y2="200.5" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="260.0" y2="201.8" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="250.5" y2="200.5" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="241.6" y2="196.9" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="234.0" y2="191.0" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="228.1" y2="183.4" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="224.5" y2="174.5" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="223.2" y2="165.0" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="224.5" y2="155.5" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="228.1" y2="146.6" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="234.0" y2="139.0" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="241.6" y2="133.1" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="250.5" y2="129.5" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="260.0" y2="128.2" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="269.5" y2="129.5" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="278.4" y2="133.1" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="286.0" y2="139.0" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="291.9" y2="146.6" stroke="#000080" stroke-width="2.2"/><line x1="260.0" y1="165.0" x2="295.5" y2="155.5" stroke="#000080" stroke-width="2.2"/><rect x="20" y="25" width="480" height="280" fill="url(#sheen)"/>
+</g>
+</svg>
